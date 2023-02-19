@@ -1,0 +1,66 @@
+{% extends 'main/base.html' %}
+
+
+
+{% block manageCL %}
+
+
+<div class="container">
+    <h2>Add a New Appointment by admin</h2>
+    
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        
+        <div class="mt-3">
+            <label class="form-label">users</label>
+            <div class="mt-3">
+                <h4>user</h4>
+                {% for i in user_assigend %}
+                <div class="rating">
+                    <input id="rating1" type="radio" name="appointmentUser" value="{{ i.id }}">
+                    <label for="rating1">{{ i.username }}</label>
+                    {% endfor %}
+                   
+                </div>
+            </div>
+            <label class="form-label">clinec</label>
+            <div class="mt-3">
+                <h4>clinec:</h4>
+                {% for i in clinec_assiend %}
+                <div class="rating">
+                    <input id="rating1" type="radio" name="apclinec" value="{{ i.id }}">
+                    <label for="rating1">{{ i.name }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+
+    
+      
+        <div class="mt-3">
+          <label class="form-label">case description</label>
+          <textarea  class="form-control" name="case_description"></textarea>
+        </div>
+    
+        <div class="mt-3">
+            <label class="form-label">age</label>
+            <input type="number" name="patient_age" class="form-control" />
+          </div>
+        
+          <div class="mt-3">
+            <label class="form-label">appointment_datetime</label>
+            <input  type="datetime-local" class="form-control" name="appointment_datetime"  />
+          </div>
+    
+          
+    
+          <br/>
+          <input type="submit" class="btn btn-primary" value="new appointments" />
+    
+        
+    
+    </form>
+    
+    </div>
+
+      {% endblock %}

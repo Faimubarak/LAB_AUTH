@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+
+
+
+{% block home %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">appointment info</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{slected_appintment.appointmentUser}}</h6>
+      <p class="card-text">{{slected_appintment.case_description}}</p>
+     
+      <p class="card-text">{{slected_appintment.appointment_datetime}}</p>
+      <a href="{% url 'main:updateappointmentByAdmin' slected_appintment.id  %}" class="card-link">edit</a>
+      <a href="{% url 'main:deleteappointmentByAdmin' slected_appintment.id  %}" class="card-link">Delete</a>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

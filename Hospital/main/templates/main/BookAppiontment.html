@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+
+{% block manageCL %}
+
+
+<div class="container">
+    <h2>Add a New Appointment</h2>
+    <div class="container">
+      <div class="row">
+       {% if messages %}
+       {% for i in messages %}
+       <div class="alert alert-success" role="alert">
+            {{ i }}
+          </div>
+          {% endfor %}
+          {% endif %}
+    
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    
+      
+        <div class="mt-3">
+          <label class="form-label">case description</label>
+          <textarea  class="form-control" name="case_description"></textarea>
+        </div>
+    
+        <div class="mt-3">
+            <label class="form-label">age</label>
+            <input type="number" name="patient_age" class="form-control" />
+          </div>
+        
+          <div class="mt-3">
+            <label class="form-label">appointment_datetime</label>
+            <input  type="datetime-local" class="form-control" name="appointment_datetime"  />
+          </div>
+    
+          
+    
+          <br/>
+          <input type="submit" class="btn btn-primary" value="new appointments" />
+    
+        
+    
+    </form>
+    
+    </div>
+
+      {% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-5">
+
+            <div class="d-flex flex-column justify-content-center align-items-center vh-100 text-center">   
+                <h1 class="animate__animated animate__bounceInLeft ">Welcome to The Hospital</h1>
+                
+            </div>
+
+
+        </div>
+
+        <div class="col animate__animated animate__fadeInRight">
+            <img class="w-100 vh-100 object-fit-cover" src="{% static 'img/img1.jpg' %}" >
+            
+        </div>
+
+    </div>
+
+
+    <div class="row mt-5 justify-content-center">
+
+      <div class="d-flex justify-content-between">
+          <h2> Clinics </h2>
+          
+    </div>
+
+</div>
+
+<div style="margin-top: 200px;" class="container" >
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for i in Clinics %}
+        <div class="col">
+        <div class="card">
+            <img src="{{ i.feature_image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{i.name}}</h5>
+            <p class="card-text">{{i.description}}</p>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+        
+        </div>
+    </div>
+</div>    
+
+
+{% endblock %}

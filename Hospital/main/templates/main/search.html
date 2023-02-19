@@ -1,0 +1,27 @@
+{%extends 'hospital/base.html'%}
+{% load static %}
+
+
+{% block title %} details page {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <hr>
+ 
+     <div class="row ">
+        <div class="row ">
+            {% for i in clinic %}
+
+            <div class="card" style="width: 900px; height: 200px;">
+              <img class="card-img-top" src="{{clinic.feature_image}}" alt="Card image cap">
+                <div class="card-body" style="color: rgba(71, 71, 71, 0.996);">
+                   <h5 class="card-title">{{i.name}}</h5>
+                  <p class="card-text">{{i.description}}</p>
+                  <p>{{i.departments}}   <br> established_at: {{i.established_at}}</p>
+                </div>
+              </div>
+
+        </div> {% endfor %}
+        <br><br>
+{% endblock %}
